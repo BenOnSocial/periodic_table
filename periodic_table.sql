@@ -151,3 +151,11 @@ alter table public.properties rename boiling_point to boiling_point_celsius;
 alter table public.properties alter column melting_point_celsius set not null;
 
 alter table public.properties alter column boiling_point_celsius set not null;
+
+alter table public.elements add unique (symbol);
+
+alter table public.elements add unique (name);
+
+alter table public.elements alter column symbol set not null;
+
+alter table public.elements alter column name set not null;
