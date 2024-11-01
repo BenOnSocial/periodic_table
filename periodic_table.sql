@@ -161,3 +161,14 @@ alter table public.elements alter column symbol set not null;
 alter table public.elements alter column name set not null;
 
 alter table public.properties add constraint atomic_number_fk foreign key (atomic_number) references public.elements(atomic_number);
+
+create table public.types(type_id serial not null unique primary key, type varchar(30) not null);
+insert into public.types (type) select distinct(type) from public.properties order by type;
+
+alter table public.properties add column type_id int;
+
+alter table public.properties add constraint type_id_fk foreign key (type_id) references public.types(type_id);
+update public.properties set type_id=types.type_id from public.types where properties.type=types.type;
+alter table public.properties alter column type_id set not null;
+
+alter table public.properties drop column type;
