@@ -137,3 +137,17 @@ ALTER TABLE ONLY public.properties
 -- PostgreSQL database dump complete
 --
 
+
+--
+-- Database updates
+--
+
+alter table public.properties rename column weight to atomic_mass;
+
+alter table public.properties rename melting_point to melting_point_celsius;
+
+alter table public.properties rename boiling_point to boiling_point_celsius;
+
+alter table public.properties alter column melting_point_celsius set not null;
+
+alter table public.properties alter column boiling_point_celsius set not null;
