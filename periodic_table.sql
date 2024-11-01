@@ -179,3 +179,9 @@ alter table public.properties alter column atomic_mass type real using atomic_ma
 
 delete from public.properties where atomic_number=1000;
 delete from public.elements where atomic_number=1000;
+
+insert into public.elements (atomic_number, symbol, name) values (9, 'F', 'Fluorine');
+insert into public.properties (atomic_number, type, atomic_mass, melting_point_celsius, boiling_point_celsius, type_id) values (9, 'nonmetal', 18.998, -220, -188.1, 3);
+
+insert into public.elements (atomic_number, symbol, name) values (10, 'Ne', 'Neon');
+insert into public.properties (atomic_number, type, atomic_mass, melting_point_celsius, boiling_point_celsius, type_id) values (10, 'nonmetal', 20.18, -248.6, -246.1, 3);
