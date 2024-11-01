@@ -163,6 +163,7 @@ alter table public.elements alter column name set not null;
 alter table public.properties add constraint atomic_number_fk foreign key (atomic_number) references public.elements(atomic_number);
 
 create table public.types(type_id serial not null unique primary key, type varchar(30) not null);
+alter table types owner to freecodecamp;
 insert into public.types (type) select distinct(type) from public.properties order by type;
 
 alter table public.properties add column type_id int;
