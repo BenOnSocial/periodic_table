@@ -159,3 +159,5 @@ alter table public.elements add unique (name);
 alter table public.elements alter column symbol set not null;
 
 alter table public.elements alter column name set not null;
+
+alter table public.properties add constraint atomic_number_fk foreign key (atomic_number) references public.elements(atomic_number);
