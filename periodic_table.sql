@@ -172,3 +172,10 @@ update public.properties set type_id=types.type_id from public.types where prope
 alter table public.properties alter column type_id set not null;
 
 alter table public.properties drop column type;
+
+update public.elements set symbol=concat(upper(left(symbol, 1)), substr(symbol, 2));
+
+alter table public.properties alter column atomic_mass type real using atomic_mass::real;
+
+delete from public.properties where atomic_number=1000;
+delete from public.elements where atomic_number=1000;
